@@ -1,5 +1,4 @@
 import random
-import time
 import unittest
 from difflib import SequenceMatcher, unified_diff
 from crypt import *
