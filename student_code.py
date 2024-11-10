@@ -103,7 +103,7 @@ def decrypt(C):
     generation = 0
 
     while generation < max_generations and best_score < 0.95:
-        for shift in range(1, 7):  # Shift range from 1 to 2 to avoid excessive computations
+        for shift in range(1, 50):  # Shift range from 1 to 2 to avoid excessive computations
             for direction in [-1, 1]:  # Left (-1) and right (+1) shifts
                 new_plaintext_symbols_sorted = shift_symbols(plaintext_symbols_sorted, shift, direction)
                 new_mapping = dict(zip(cipher_symbols_sorted, new_plaintext_symbols_sorted))
@@ -118,7 +118,7 @@ def decrypt(C):
                     best_mapping = new_mapping
                     plaintext_symbols_sorted = new_plaintext_symbols_sorted
                     break
-            if best_score >= 0.55:
+            if best_score >= 0.95:
                 break
         generation += 1
 
